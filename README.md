@@ -1,3 +1,9 @@
+## Preparations: 
+
+- Install Brew `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
+- Install Nvim `brew install neovim`
+
 ## Try out this config
 
 Make sure to remove or move your current `nvim` directory
@@ -44,3 +50,9 @@ Next we need to install [NerdFonts](https://www.nerdfonts.com/font-downloads)
 - Copy `./fonts/*` to `~/.local/share/fonts` 
 
 - Add to the profile of your terminal 
+
+Install `black`
+
+- `xcode-select --install`
+
+- `brew install black`
