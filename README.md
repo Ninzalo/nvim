@@ -35,4 +35,12 @@ Next we need to install python support (node is optional)
 
 Next we need to install [NerdFonts](https://www.nerdfonts.com/font-downloads)
 
+- Change directory to `~/.local/share/`
+
+- Create directory with `mkdir fonts`
+
+- Change directory to `~/.config/nvim`
+
+- Copy `./fonts/*` to `~/.local/share/fonts` 
+
 - Add to the profile of your terminal 
