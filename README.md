@@ -8,6 +8,9 @@
 
 - Install Nvim `brew install neovim`
 
+- Update packages `brew update`
+
+
 ## Try out this config
 
 Make sure to remove or move your current `nvim` directory
@@ -47,11 +50,27 @@ Next we need to install [NerdFonts](https://www.nerdfonts.com/font-downloads)
 
 - Change directory to `~/.local/share/`
 
-- Create directory with `mkdir fonts`
+  ```
+  cd ~/.local/share
+  ```
+
+- Create directory `fonts`
+
+  ```
+  mkdir fonts
+  ```
 
 - Change directory to `~/.config/nvim`
 
+  ```
+  cd ~/.config/nvim
+  ```
+
 - Copy `./fonts/*` to `~/.local/share/fonts` 
+
+  ```
+  cp -rf ./fonts/* ~/.local/share/fonts/
+  ```
 
 - Add to the profile of your terminal 
 
