@@ -79,3 +79,15 @@ Install `black`
 - `xcode-select --install`
 
 - `brew install black`
+
+## Main shortcuts
+
+- `<Space>lc` - shows func/class params
+
+- `<Space>lf` - formats all file 
+
+- `<Space>w` - writes file
+
+- `<Space>q` - exits nvim
+
+- `<Space>` - shows other shortcuts
