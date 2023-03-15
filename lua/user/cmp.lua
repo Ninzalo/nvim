@@ -45,6 +45,15 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
+
+local source_mapping = {
+  nvim_lsp = "[LSP]",
+  cmp_tabnine = "[TN]",
+  luasnip = "[Snippet]",
+  buffer = "[Buffer]",
+  path = "[Path]",
+}
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -100,16 +109,19 @@ cmp.setup {
       -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-      vim_item.menu = ({
-        nvim_lsp = "[LSP]",
-        luasnip = "[Snippet]",
-        buffer = "[Buffer]",
-        path = "[Path]",
-      })[entry.source.name]
+      local menu = source_mapping[entry.source.name]
+      if entry.source.name == 'cmp_tabnine' then
+        if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+          menu = entry.completion_item.data.detail .. ' ' .. menu
+        end
+      vim_item.kind = ''
+      end
+      vim_item.menu = menu
       return vim_item
     end,
   },
   sources = {
+    { name = "cmp_tabnine"},
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
