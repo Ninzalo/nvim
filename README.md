@@ -90,8 +90,8 @@ Install `black`
 
 - `<Space>q` - exits nvim
 
-- `<Ctrl>\` - opens inner terminal
-
 - `<Space>` - shows other shortcuts
 
-- `<Control>k` - shows file/folder info
+- `<Ctrl>\` - opens inner terminal
+
+- `<Ctrl>k` - shows file/folder info
