@@ -93,3 +93,5 @@ Install `black`
 - `<Ctrl>\` - opens inner terminal
 
 - `<Space>` - shows other shortcuts
+
+- `<Control>k` - shows file/folder info
