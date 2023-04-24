@@ -49,6 +49,7 @@ local kind_icons = {
 local source_mapping = {
   nvim_lsp = "[LSP]",
   cmp_tabnine = "[TN]",
+  codeium = '[Codeium]',
   luasnip = "[Snippet]",
   buffer = "[Buffer]",
   path = "[Path]",
@@ -116,11 +117,15 @@ cmp.setup {
         end
       vim_item.kind = ''
       end
+      if entry.source.name == 'codeium' then
+        vim_item.kind = ''
+      end
       vim_item.menu = menu
       return vim_item
     end,
   },
   sources = {
+    { name = "codeium" },
     { name = "cmp_tabnine"},
     { name = "nvim_lsp" },
     { name = "luasnip" },
