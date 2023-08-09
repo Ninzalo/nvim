@@ -95,3 +95,5 @@ Install `black`
 - `<Ctrl>\` - opens inner terminal
 
 - `<Ctrl>k` - shows file/folder info
+
+- `gcc` - comments line
