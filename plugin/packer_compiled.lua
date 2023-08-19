@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/ninzalogg/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
+  ["baleia.nvim"] = {
+    loaded = true,
+    path = "/Users/ninzalogg/.local/share/nvim/site/pack/packer/start/baleia.nvim",
+    url = "https://github.com/m00qek/baleia.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/ninzalogg/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -144,6 +149,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ninzalogg/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
+  },
+  ["image.nvim"] = {
+    loaded = true,
+    path = "/Users/ninzalogg/.local/share/nvim/site/pack/packer/start/image.nvim",
+    url = "https://github.com/samodostal/image.nvim"
   },
   ["impatient.nvim"] = {
     loaded = true,
