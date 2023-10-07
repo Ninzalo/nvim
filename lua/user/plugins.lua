@@ -61,7 +61,7 @@ return packer.startup(function(use)
 	use({ "morhetz/gruvbox" })
 
 	-- Cmp
-	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
+	use({ "hrsh7th/nvim-cmp", commit = "c7189282199d6f92d3becb91d4f44fc734f75f98" }) -- The completion plugin
 	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
 	use({ "hrsh7th/cmp-path" }) -- path completions
 	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
@@ -87,19 +87,12 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 	})
 
-	-- Tabnine
-	-- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
-	use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
-
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
 
 	-- Images
 	use({
 		"samodostal/image.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim",
-		},
 	})
 	use({ "m00qek/baleia.nvim", tag = "v1.3.0" })
 
@@ -108,7 +101,7 @@ return packer.startup(function(use)
 		"jcdickinson/codeium.nvim",
 		requires = {
 			"nvim-lua/plenary.nvim",
-			"hrsh7th/nvim-cmp",
+			{ "hrsh7th/nvim-cmp" },
 		},
 		config = function()
 			require("codeium").setup({})
