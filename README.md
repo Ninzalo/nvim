@@ -1,6 +1,6 @@
-## Preparations: 
+## Preparations:
 
-- Install Brew 
+- Install Brew
 
   ```
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -10,17 +10,17 @@
 
 - Update packages `brew update`
 
-
 ## Try out this config
 
 Make sure to remove or move your current `nvim` directory
 
-**IMPORTANT** Requires [Neovim v0.8.0](https://github.com/neovim/neovim/releases). Please [upgrade](#upgrade-to-latest-release) if you're on an earlier version. 
+**IMPORTANT** Requires [Neovim v0.8.0](https://github.com/neovim/neovim/releases). Please [upgrade](#upgrade-to-latest-release) if you're on an earlier version.
+
 ```
 git clone git@github.com:Ninzalo/nvimconf.git ~/.config/nvim
 ```
 
-Run `nvim` and wait for the plugins to be installed. (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim) 
+Run `nvim` and wait for the plugins to be installed. (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim)
 
 ## Get healthy
 
@@ -29,7 +29,6 @@ Open `nvim` and enter the following:
 ```
 :checkhealth
 ```
-
 
 Next we need to install python support (node is optional)
 
@@ -44,6 +43,7 @@ Next we need to install python support (node is optional)
   ```
   npm i -g neovim
   ```
+
 ---
 
 Next we need to install [NerdFonts](https://www.nerdfonts.com/font-downloads)
@@ -66,13 +66,13 @@ Next we need to install [NerdFonts](https://www.nerdfonts.com/font-downloads)
   cd ~/.config/nvim
   ```
 
-- Copy `./fonts/*` to `~/.local/share/fonts` 
+- Copy `./fonts/*` to `~/.local/share/fonts`
 
   ```
   cp -rf ./fonts/* ~/.local/share/fonts/
   ```
 
-- Add to the profile of your terminal 
+- Add to the profile of your terminal
 
 Install `black`
 
@@ -80,20 +80,58 @@ Install `black`
 
 - `brew install black`
 
+## Install all linters and formatters
+
+Press `<Space>m`. Then type `/{linter|formatter name}`
+
+- `clang-format`
+
+- `cpplint`
+
+- `solhint`
+
+- `hadolint`
+
+- `shfmt`
+
+- `shellcheck`
+
+- `fixjson`
+
+- `stylua`
+
+- `luacheck`
+
+- `flake8`
+
+- `black`
+
+- `eslint_d`
+
+- `prettierd`
+
+- `clangd`
+
+- `solidity-ls`
+
+- `json-lsp`
+
+- `emmet-ls`
+
+- `lua-language-server`
+
+- `pyright`
+
+- `tailwindcss-language-server`
+
+- `bash-language-server`
+
+- `efm`
+
+- `typescript-language-server`
+
+Or install them with `brew`: `brew install {linter|formatter name}`
+
 ## Main shortcuts
 
-- `<Space>lc` - shows func/class params
-
-- `<Space>lf` - formats all file 
-
-- `<Space>w` - writes file
-
-- `<Space>q` - exits nvim
-
-- `<Space>` - shows other shortcuts
-
-- `<Ctrl>\` - opens inner terminal
-
-- `<Ctrl>k` - shows file/folder info
-
-- `gcc` - comments line
+- `<Space>` - shows keymaps
