@@ -1,22 +1,39 @@
-local opts = {
-	ensure_installed = {
-		"efm",
-		"bashls",
-		"tsserver",
-		"solidity",
-		"tailwindcss",
-		"pyright",
-		"lua_ls",
-		"emmet_ls",
-		"jsonls",
-		"clangd",
-	},
-	automatic_installation = true,
-}
+local config = function()
+	local mason_lspconfig = require("mason-lspconfig")
+	local mason_tool_installer = require("mason-tool-installer")
+
+	mason_lspconfig.setup({
+		-- list of servers for mason to install
+		ensure_installed = {
+			"tsserver",
+			"html",
+			"cssls",
+			"lua_ls",
+			"graphql",
+			"emmet_ls",
+			"pyright",
+		},
+		-- auto-install configured servers (with lspconfig)
+		automatic_installation = true, -- not the same as ensure_installed
+	})
+
+	mason_tool_installer.setup({
+		ensure_installed = {
+			"prettierd", -- prettier formatter
+			"stylua", -- lua formatter
+			"isort", -- python formatter
+			"black", -- python formatter
+			"pylint", -- python linter
+			"eslint_d", -- js linter
+		},
+		automatic_installation = true, -- not the same as ensure_installed
+	})
+end
 
 return {
 	"williamboman/mason-lspconfig.nvim",
-	opts = opts,
+	lazy = false,
 	event = "BufReadPre",
-	dependencies = { "williamboman/mason.nvim" },
+	config = config,
+	dependencies = { "williamboman/mason.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
 }

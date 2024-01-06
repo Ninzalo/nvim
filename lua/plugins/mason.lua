@@ -14,6 +14,7 @@ end
 
 return {
 	"williamboman/mason.nvim",
+	lazy = false,
 	cmd = "Mason",
 	event = "BufReadPre",
 	config = config,
