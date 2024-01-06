@@ -1,8 +1,7 @@
-return {
-	"williamboman/mason.nvim",
-	cmd = "Mason",
-	event = "BufReadPre",
-	opts = {
+local config = function()
+	local mason = require("mason")
+
+	mason.setup({
 		ui = {
 			icons = {
 				package_installed = "✓",
@@ -10,5 +9,12 @@ return {
 				package_uninstalled = "✗",
 			},
 		},
-	},
+	})
+end
+
+return {
+	"williamboman/mason.nvim",
+	cmd = "Mason",
+	event = "BufReadPre",
+	config = config,
 }
