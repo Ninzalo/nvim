@@ -29,7 +29,7 @@ end
 
 return {
 	"nvim-treesitter/nvim-treesitter",
-	lazy = false,
+	-- lazy = false,
 	build = ":TSUpdate",
 	config = config,
 }
