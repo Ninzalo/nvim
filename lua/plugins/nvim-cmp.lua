@@ -1,37 +1,36 @@
-local cmp = require("cmp")
-local luasnip = require("luasnip")
-
-local check_backspace = function()
-	local col = vim.fn.col(".") - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
-end
-
-local next_item_with_tab = function(fallback)
-	if cmp.visible() then
-		cmp.select_next_item()
-	elseif luasnip.expandable() then
-		luasnip.expand()
-	elseif luasnip.expand_or_jumpable() then
-		luasnip.expand_or_jump()
-	elseif check_backspace() then
-		fallback()
-	else
-		fallback()
-	end
-end
-
-local prev_item_with_tab = function(fallback)
-	if cmp.visible() then
-		cmp.select_prev_item()
-	elseif luasnip.jumpable(-1) then
-		luasnip.jump(-1)
-	else
-		fallback()
-	end
-end
-
 local config = function()
 	local lspkind = require("lspkind")
+	local cmp = require("cmp")
+	local luasnip = require("luasnip")
+
+	local check_backspace = function()
+		local col = vim.fn.col(".") - 1
+		return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+	end
+
+	local next_item_with_tab = function(fallback)
+		if cmp.visible() then
+			cmp.select_next_item()
+		elseif luasnip.expandable() then
+			luasnip.expand()
+		elseif luasnip.expand_or_jumpable() then
+			luasnip.expand_or_jump()
+		elseif check_backspace() then
+			fallback()
+		else
+			fallback()
+		end
+	end
+
+	local prev_item_with_tab = function(fallback)
+		if cmp.visible() then
+			cmp.select_prev_item()
+		elseif luasnip.jumpable(-1) then
+			luasnip.jump(-1)
+		else
+			fallback()
+		end
+	end
 
 	require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -96,12 +95,5 @@ return {
 		"L3MON4D3/LuaSnip", -- snippet engine
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
-		{
-			"L3MON4D3/LuaSnip",
-			-- follow latest release.
-			-- version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-			-- install jsregexp (optional!).
-			build = "make install_jsregexp",
-		},
 	},
 }
