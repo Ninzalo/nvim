@@ -30,6 +30,7 @@ local options = {
 	numberwidth = 4, -- set number column width to 2 {default 4}
 
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
+	colorcolumn = "80", -- column to align text
 	wrap = true, -- display lines as one long line
 	linebreak = true, -- companion to wrap, don't split words
 	scrolloff = 8, -- minimal number of screen lines to keep above and below the cursor
