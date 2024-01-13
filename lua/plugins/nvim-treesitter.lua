@@ -30,6 +30,9 @@ end
 return {
 	"nvim-treesitter/nvim-treesitter",
 	-- lazy = false,
+	dependencies = {
+		"windwp/nvim-ts-autotag",
+	},
 	build = ":TSUpdate",
 	config = config,
 }
