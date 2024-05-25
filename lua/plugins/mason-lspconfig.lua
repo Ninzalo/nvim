@@ -24,6 +24,7 @@ local config = function()
 			"isort", -- python formatter
 			"black", -- python formatter
 			"pylint", -- python linter
+			"flake8", -- python linter
 			"eslint_d", -- js linter
 		},
 		automatic_installation = true, -- not the same as ensure_installed
