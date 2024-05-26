@@ -24,6 +24,7 @@ return {
 			h = { "<cmd>nohlsearch<CR>", "No Highlight" },
 			m = { "<cmd>Mason<CR>", "Mason LSP" },
 			t = { "<cmd>ToggleTerm<CR>", "Terminal" },
+			r = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Ruff" },
 
 			s = {
 				name = "Window Split",

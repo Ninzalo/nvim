@@ -5,9 +5,13 @@ M.lsp_configs = {
 	pyright = {
 		autostart = true,
 		settings = {
+			pyright = {
+				disableOrganizeImports = true,
+			},
 			python = {
 				analysis = {
 					typeCheckingMode = "off",
+					ignore = { "*" },
 				},
 			},
 		},
@@ -17,8 +21,9 @@ M.lsp_configs = {
 		init_options = {
 			settings = {
 				args = {
-					"--ignore",
-					"I001",
+					"--ignore=N999,S603",
+					"--select=E,F,UP,N,I,ASYNC,S,PTH",
+					"--line-length=79",
 				},
 			},
 		},
@@ -27,10 +32,12 @@ M.lsp_configs = {
 M.formatters = {
 	python = {
 		"ruff",
-		"isort",
-		"black",
 	},
 }
-M.linters = { python = { "ruff", "flake8", "pylint" } }
+M.linters = {
+	python = {
+		"ruff",
+	},
+}
 
 return M

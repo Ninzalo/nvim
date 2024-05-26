@@ -1,5 +1,6 @@
 local config = function()
 	local conform = require("conform")
+	local tools = require("util.tools")
 
 	local conform_config = function()
 		local formatters_by_ft = {}
