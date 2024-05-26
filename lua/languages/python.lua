@@ -21,8 +21,8 @@ M.lsp_configs = {
 		init_options = {
 			settings = {
 				args = {
-					"--ignore=N999,S603",
-					"--select=E,F,UP,N,I,ASYNC,S,PTH",
+					"--ignore=N999,S603,TID251,D100,ANN101,ANN102,BLE001,S110",
+					"--select=A,B,D,E,F,I,N,Q,R,S,W,UP,C90,ANN,BLE,FBT,ASYNC,COM,C4,EM,PIE,TID,ARG,PTH,PL",
 					"--line-length=79",
 				},
 			},
