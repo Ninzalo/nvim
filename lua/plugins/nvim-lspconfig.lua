@@ -1,4 +1,5 @@
 local on_attach = require("util.lsp").on_attach
+local tools = require("util.tools")
 local diagnostic_signs = require("util.icons").diagnostic_signs
 
 local config = function()
@@ -42,64 +43,15 @@ local config = function()
 		border = "rounded",
 	})
 
-	-- html
-	lspconfig["html"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-	})
-
-	-- configure typescript server with plugin
-	lspconfig["tsserver"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-	})
-
-	-- configure css server
-	lspconfig["cssls"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-	})
-
-	-- configure graphql language server
-	lspconfig["graphql"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-	})
-
-	-- configure emmet language server
-	lspconfig["emmet_ls"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-	})
-
-	-- configure python server
-	lspconfig["pyright"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-	})
-
-	-- configure lua server (with special settings)
-	lspconfig["lua_ls"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		settings = { -- custom settings for lua
-			Lua = {
-				-- make the language server recognize "vim" global
-				diagnostics = {
-					globals = { "vim" },
-				},
-				workspace = {
-					-- make language server aware of runtime files
-					library = {
-						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-						[vim.fn.stdpath("config") .. "/lua"] = true,
-					},
-				},
-			},
-		},
-	})
+	for _, opts in pairs(require("languages")) do
+		if opts.lsp_configs then
+			for name, config in pairs(opts.lsp_configs) do
+				local default_properties = { capabilities = capabilities, on_attach = on_attach }
+				local merged_table = tools.merge_tables(config, default_properties)
+				lspconfig[name].setup(merged_table)
+			end
+		end
+	end
 end
 
 return {

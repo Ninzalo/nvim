@@ -1,14 +1,18 @@
 local config = function()
 	local lint = require("lint")
 
-	lint.linters_by_ft = {
-		javascript = { "eslint_d" },
-		typescript = { "eslint_d" },
-		javascriptreact = { "eslint_d" },
-		typescriptreact = { "eslint_d" },
-		svelte = { "eslint_d" },
-		python = { "pylint", "flake8" },
-	}
+	local linters = function()
+		local linters_by_ft = {}
+		for _, opts in pairs(require("languages")) do
+			if opts.linters ~= nil then
+				for name, formatter in pairs(opts.linters) do
+					linters_by_ft[name] = formatter
+				end
+			end
+		end
+		return linters_by_ft
+	end
+	lint.linters_by_ft = linters()
 
 	local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 

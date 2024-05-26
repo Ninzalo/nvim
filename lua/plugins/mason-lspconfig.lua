@@ -1,34 +1,45 @@
+local lsp_options = function()
+	local tools = require("util.tools")
+	local ensure_installed = {}
+	for _, opts in pairs(require("languages")) do
+		if opts.lsp_configs then
+			for name, _ in pairs(opts.lsp_configs) do
+				ensure_installed = tools.merge_arrays(ensure_installed, { name })
+			end
+		end
+	end
+	return { ensure_installed = ensure_installed, automatic_installation = true }
+end
+
+local others_options = function()
+	local tools = require("util.tools")
+	local ensure_installed = {}
+	-- Install formatters
+	for _, opts in pairs(require("languages")) do
+		if opts.formatters then
+			for _, opt in pairs(opts.formatters) do
+				ensure_installed = tools.merge_arrays(ensure_installed, opt)
+			end
+		end
+	end
+	-- Install linters
+	for _, opts in pairs(require("languages")) do
+		if opts.linters then
+			for _, opt in pairs(opts.linters) do
+				ensure_installed = tools.merge_arrays(ensure_installed, opt)
+			end
+		end
+	end
+	return { ensure_installed = ensure_installed, automatic_installation = true }
+end
+
 local config = function()
 	local mason_lspconfig = require("mason-lspconfig")
 	local mason_tool_installer = require("mason-tool-installer")
 
-	mason_lspconfig.setup({
-		-- list of servers for mason to install
-		ensure_installed = {
-			"tsserver",
-			"html",
-			"cssls",
-			"lua_ls",
-			"graphql",
-			"emmet_ls",
-			"pyright",
-		},
-		-- auto-install configured servers (with lspconfig)
-		automatic_installation = true, -- not the same as ensure_installed
-	})
+	mason_lspconfig.setup(lsp_options())
 
-	mason_tool_installer.setup({
-		ensure_installed = {
-			"prettierd", -- prettier formatter
-			"stylua", -- lua formatter
-			"isort", -- python formatter
-			"black", -- python formatter
-			"pylint", -- python linter
-			"flake8", -- python linter
-			"eslint_d", -- js linter
-		},
-		automatic_installation = true, -- not the same as ensure_installed
-	})
+	mason_tool_installer.setup(others_options())
 end
 
 return {
