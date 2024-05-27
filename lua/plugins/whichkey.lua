@@ -14,17 +14,23 @@ return {
 		}
 
 		local mappings = {
-			e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+			e = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
 			w = { "<cmd>w!<CR>", "Save" },
 			q = { "<cmd>q<CR>", "Quit" },
-			f = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-			F = { "<cmd>Telescope find_files theme=ivy<cr>", "Find Files" },
-			b = { "<cmd>Telescope buffers theme=ivy<cr>", "Buffers" },
+			f = { "<cmd>Telescope live_grep theme=ivy<CR>", "Find Text" },
+			F = { "<cmd>Telescope find_files theme=ivy<CR>", "Find Files" },
+			b = { "<cmd>Telescope buffers theme=ivy<CR>", "Buffers" },
 			P = { "<cmd>Telescope projects theme=ivy<CR>", "Projects" },
 			h = { "<cmd>nohlsearch<CR>", "No Highlight" },
 			m = { "<cmd>Mason<CR>", "Mason LSP" },
-			t = { "<cmd>ToggleTerm<CR>", "Terminal" },
-			r = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Ruff" },
+			c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+
+			t = {
+				name = "Toggle",
+				e = { "<cmd>ToggleTerm<CR>", "Terminal" },
+				r = { "<cmd>TroubleToggle<CR>", "Trouble" },
+				a = { "<cmd>TSJToggle<CR>", "Array" },
+			},
 
 			s = {
 				name = "Window Split",
@@ -47,9 +53,9 @@ return {
 
 			p = {
 				name = "Lazy",
-				l = { "<cmd>Lazy<cr>", "Open Lazy" },
-				u = { "<cmd>Lazy update<cr>", "Update" },
-				i = { "<cmd>Lazy install<cr>", "Install" },
+				l = { "<cmd>Lazy<CR>", "Open Lazy" },
+				u = { "<cmd>Lazy update<CR>", "Update" },
+				i = { "<cmd>Lazy install<CR>", "Install" },
 			},
 
 			n = {

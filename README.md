@@ -74,10 +74,14 @@ Next we need to install [NerdFonts](https://www.nerdfonts.com/font-downloads)
 
 - Add to the profile of your terminal
 
-Install `black`
-
-- `xcode-select --install`
-
 ## Main shortcuts
 
-- `<Space>` - shows keymaps
+- `<Space>` - shows key mappings
+
+#### Nvim-surround
+
+- `ysiw)` - surround_words -> (surround_words)
+
+- `ds)` - (delete around me) -> delete around me
+
+- `cs'"` - 'change quotes' -> "change quotes"
