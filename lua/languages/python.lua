@@ -4,6 +4,7 @@ M.treesitter_to_install = { "python" }
 M.lsp_configs = {
 	pyright = {
 		autostart = true,
+		filetypes = { "python" },
 		settings = {
 			pyright = {
 				disableOrganizeImports = true,
@@ -18,26 +19,37 @@ M.lsp_configs = {
 	},
 	ruff_lsp = {
 		autostart = true,
+		filetypes = { "python" },
 		init_options = {
 			settings = {
-				args = {
-					"--ignore=N999,S603,TID251,D100,ANN101,ANN102,BLE001,S110,S311",
-					"--select=A,B,D,E,F,I,N,Q,R,S,W,UP,C90,ANN,BLE,FBT,ASYNC,COM,C4,EM",
-					"--select=PIE,TID,ARG,PTH,PL",
-					"--line-length=79",
+				fixAll = true,
+				lint = {
+					enable = true,
+					args = {
+						"--ignore=S603,S110,S311,S112",
+						"--ignore=N999,TID251,ANN101,ANN102,BLE001",
+						"--ignore=D107,D100",
+						"--select=A,B,D,E,F,I,N,Q,R,S,W,UP,C4,C90,ANN,BLE,FBT,ASYNC,COM",
+						"--select=PIE,TID,ARG,PTH,PL,EM",
+						"--line-length=79",
+					},
+				},
+				format = {
+					args = {
+						"--line-length=79",
+						"--no-cache",
+					},
 				},
 			},
 		},
 	},
 }
-M.formatters = {
-	python = {
-		"ruff",
-	},
-}
-M.linters = {
-	python = {
-		"ruff",
+
+M.on_attach = {
+	ruff_lsp = {
+		server_capabilities = {
+			hoverProvider = false,
+		},
 	},
 }
 
