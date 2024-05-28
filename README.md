@@ -1,8 +1,10 @@
 ## Preparations
 
+#### With Brew (MacOS only)
+
 - Install Brew
 
-  ```
+  ```sh
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
 
@@ -10,27 +12,29 @@
 
 - Install Neovim: `brew install neovim`
 
+- Install additional packages: `brew install git npm`
+
 - Update packages: `brew upgrade`
 
 ## Installation
 
 - Remove or move your current `nvim` directory (if exists)
-  ```
+  ```sh
   mv ~/.config/nvim ~/.config/nvim_bak
   ```
   or
-  ```
+  ```sh
   rm -rf ~/.config/nvim
   ```
 
 - Clear Neovim cache (if exists)
-  ```
+  ```sh
   rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
   ```
 
 **IMPORTANT** Requires [Neovim v0.8.0](https://github.com/neovim/neovim/releases). Please [upgrade](#upgrade-to-latest-release) if you're on an earlier version.
 
-```
+```sh
 git clone git@github.com:Ninzalo/nvimconf.git ~/.config/nvim
 ```
 
@@ -47,23 +51,13 @@ Open `nvim` and enter the following:
 
 Next we need to install [NerdFonts](https://www.nerdfonts.com/font-downloads)
 
-- Change directory to `~/.local/share/`
-  ```
-  cd ~/.local/share
-  ```
-
 - Create directory `fonts`
-  ```
-  mkdir fonts
-  ```
-
-- Change directory to `~/.config/nvim`
-  ```
-  cd ~/.config/nvim
+  ```sh
+  mkdir ~/.local/share/fonts
   ```
 
-- Copy `./fonts/*` to `~/.local/share/fonts`
-  ```
+- Copy `<FONTS DIRECTORY>/*` to `~/.local/share/fonts`
+  ```sh
   cp -rf ./fonts/* ~/.local/share/fonts/
   ```
 
