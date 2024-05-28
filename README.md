@@ -6,27 +6,27 @@
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
 
-- Update brew `brew update`
+- Update brew: `brew update`
 
-- Install Neovim `brew install neovim`
+- Install Neovim: `brew install neovim`
 
-- Update packages `brew upgrade`
+- Update packages: `brew upgrade`
 
 ## Installation
 
 - Remove or move your current `nvim` directory (if exists)
-```
-mv ~/.config/nvim ~/.config/nvim_bak
-```
-or
-```
-rm -rf ~/.config/nvim
-```
+  ```
+  mv ~/.config/nvim ~/.config/nvim_bak
+  ```
+  or
+  ```
+  rm -rf ~/.config/nvim
+  ```
 
 - Clear Neovim cache (if exists)
-```
-rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
-```
+  ```
+  rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
+  ```
 
 **IMPORTANT** Requires [Neovim v0.8.0](https://github.com/neovim/neovim/releases). Please [upgrade](#upgrade-to-latest-release) if you're on an earlier version.
 
