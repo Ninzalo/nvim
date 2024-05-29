@@ -76,11 +76,3 @@ Next we need to install [NerdFonts](https://www.nerdfonts.com/font-downloads)
 - `ds)` - (delete around me) -> delete around me
 
 - `cs'"` - 'change quotes' -> "change quotes"
-
-#### Leap
-
-- `s<first_letter><second_letter>` - search for word forward
-
-- `S<first_letter><second_letter>` - search for word backward
-
-- `gs<first_letter><second_letter>` - search for word in other windows (split view mode)

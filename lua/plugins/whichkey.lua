@@ -24,6 +24,7 @@ return {
 			h = { "<cmd>nohlsearch<CR>", "No Highlight" },
 			m = { "<cmd>Mason<CR>", "Mason LSP" },
 			c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+			s = { "<cmd>lua require('flash').jump()<CR>", "Search for word" },
 
 			t = {
 				name = "Toggle",
@@ -32,7 +33,7 @@ return {
 				a = { "<cmd>TSJToggle<CR>", "Array" },
 			},
 
-			s = {
+			S = {
 				name = "Window Split",
 				v = { "<cmd>vsplit<CR>", "Vertical" },
 				h = { "<cmd>split<CR>", "Horizontal" },
