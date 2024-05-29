@@ -12,7 +12,7 @@
 
 - Install Neovim: `brew install neovim`
 
-- Install additional packages: `brew install git npm`
+- Install additional packages: `brew install git npm gnu-sed`
 
 - Update packages: `brew upgrade`
 

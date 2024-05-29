@@ -33,6 +33,17 @@ return {
 				a = { "<cmd>TSJToggle<CR>", "Array" },
 			},
 
+			r = {
+				name = "Search and replace",
+				t = { "<cmd>lua require('spectre').toggle()<CR>", "Toggle Spectre" },
+				f = { "<cmd>lua require('spectre').open_file_search()<CR>", "Open File" },
+				w = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Select Word" },
+				W = {
+					"<cmd>lua require('spectre').open_file_search({select_word=true})<CR>",
+					"Select Word in current file",
+				},
+			},
+
 			S = {
 				name = "Window Split",
 				v = { "<cmd>vsplit<CR>", "Vertical" },
