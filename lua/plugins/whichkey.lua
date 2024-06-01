@@ -29,8 +29,18 @@ return {
 			t = {
 				name = "Toggle",
 				e = { "<cmd>ToggleTerm<CR>", "Terminal" },
-				r = { "<cmd>TroubleToggle<CR>", "Trouble" },
 				a = { "<cmd>TSJToggle<CR>", "Array" },
+				r = {
+					name = "Trouble",
+					d = {
+						"<cmd>Trouble diagnostics toggle focus=true win={ size={ height=0.3 } }<CR>",
+						"Diagnostics",
+					},
+					s = {
+						"<cmd>Trouble symbols toggle focus=true win={ size={ width=0.3 } }<CR>",
+						"Symbols",
+					},
+				},
 			},
 
 			r = {
