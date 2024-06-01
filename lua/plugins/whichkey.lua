@@ -23,8 +23,8 @@ return {
 			P = { "<cmd>Telescope projects theme=ivy<CR>", "Projects" },
 			h = { "<cmd>nohlsearch<CR>", "No Highlight" },
 			m = { "<cmd>Mason<CR>", "Mason LSP" },
-			c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
 			s = { "<cmd>lua require('flash').jump()<CR>", "Search for word" },
+			M = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
 
 			t = {
 				name = "Toggle",
@@ -33,11 +33,11 @@ return {
 				r = {
 					name = "Trouble",
 					d = {
-						"<cmd>Trouble diagnostics toggle focus=true win={ size={ height=0.3 } }<CR>",
+						"<cmd>Trouble diagnostics toggle focus=true win={size={height=0.3}}<CR>",
 						"Diagnostics",
 					},
 					s = {
-						"<cmd>Trouble symbols toggle focus=true win={ size={ width=0.3 } }<CR>",
+						"<cmd>Trouble symbols toggle focus=true win={size={width=0.3}}<CR>",
 						"Symbols",
 					},
 				},
@@ -71,6 +71,7 @@ return {
 				name = "LSP Saga",
 				d = { "<cmd>Lspsaga goto_definition<CR>", "Go to definition" },
 				l = { "<cmd>Lspsaga hover_doc<CR>", "Show docs" },
+				c = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
 			},
 
 			p = {
