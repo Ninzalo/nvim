@@ -14,16 +14,14 @@ end
 local others_options = function()
 	local tools = require("util.tools")
 	local ensure_installed = {}
-	-- Install formatters
 	for _, opts in pairs(require("languages")) do
+		-- Install formatters
 		if opts.formatters then
 			for _, opt in pairs(opts.formatters) do
 				ensure_installed = tools.merge_arrays(ensure_installed, opt)
 			end
 		end
-	end
-	-- Install linters
-	for _, opts in pairs(require("languages")) do
+		-- Install linters
 		if opts.linters then
 			for _, opt in pairs(opts.linters) do
 				ensure_installed = tools.merge_arrays(ensure_installed, opt)
