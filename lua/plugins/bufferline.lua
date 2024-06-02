@@ -24,7 +24,17 @@ local config = function()
 			-- diagnostics_indicator = function(count, level, diagnostics_dict, context)
 			--   return "("..count..")"
 			-- end,
-			offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+			-- offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+			offsets = {
+				{
+					filetype = "NvimTree",
+					text = "File Explorer",
+					text_align = "center",
+					highlight = "Directory",
+					padding = 0,
+					separator = true, -- use a "true" to enable the default, or set your own character
+				},
+			},
 			show_buffer_icons = true,
 			show_buffer_close_icons = true,
 			show_close_icon = true,
