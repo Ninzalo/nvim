@@ -25,6 +25,7 @@ return {
 			m = { "<cmd>Mason<CR>", "Mason LSP" },
 			s = { "<cmd>lua require('flash').jump()<CR>", "Search for word" },
 			M = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
+			G = { "<cmd>Neogit<CR>", "Neogit" },
 
 			t = {
 				name = "Toggle",
