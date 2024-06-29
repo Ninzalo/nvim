@@ -2,20 +2,35 @@ local config = function()
 	local gitsigns = require("gitsigns")
 	gitsigns.setup({
 		signs = {
-			add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-			change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-			delete = { hl = "GitSignsDelete", text = "󰐊", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-			topdelete = {
-				hl = "GitSignsDelete",
+			add = {
+				-- hl = "GitSignsAdd",
+				text = "▎",
+				-- numhl = "GitSignsAddNr",
+				-- linehl = "GitSignsAddLn",
+			},
+			change = {
+				-- hl = "GitSignsChange",
+				text = "▎",
+				-- numhl = "GitSignsChangeNr",
+				-- linehl = "GitSignsChangeLn",
+			},
+			delete = {
+				-- hl = "GitSignsDelete",
 				text = "󰐊",
-				numhl = "GitSignsDeleteNr",
-				linehl = "GitSignsDeleteLn",
+				-- numhl = "GitSignsDeleteNr",
+				-- linehl = "GitSignsDeleteLn",
+			},
+			topdelete = {
+				-- hl = "GitSignsDelete",
+				text = "󰐊",
+				-- numhl = "GitSignsDeleteNr",
+				-- linehl = "GitSignsDeleteLn",
 			},
 			changedelete = {
-				hl = "GitSignsChange",
+				-- hl = "GitSignsChange",
 				text = "▎",
-				numhl = "GitSignsChangeNr",
-				linehl = "GitSignsChangeLn",
+				-- numhl = "GitSignsChangeNr",
+				-- linehl = "GitSignsChangeLn",
 			},
 		},
 		signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
@@ -34,10 +49,9 @@ local config = function()
 			delay = 1000,
 			ignore_whitespace = false,
 		},
-		current_line_blame_formatter_opts = {
-			relative_time = false,
-		},
-		sign_priority = 6,
+		-- current_line_blame_formatter_opts = {
+		-- 	relative_time = false,
+		-- }, sign_priority = 6,
 		update_debounce = 100,
 		status_formatter = nil, -- Use default
 		max_file_length = 40000,
@@ -49,9 +63,9 @@ local config = function()
 			row = 0,
 			col = 1,
 		},
-		yadm = {
-			enable = false,
-		},
+		-- yadm = {
+		-- 	enable = false,
+		-- },
 	})
 end
 
