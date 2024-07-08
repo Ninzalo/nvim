@@ -57,6 +57,7 @@ local config = function()
 		sources = cmp.config.sources({
 			{ name = "codeium" }, -- codeium
 			{ name = "nvim_lsp" }, -- lsp
+			{ name = "vim-dadbod-completion" }, -- sql lsp
 			{ name = "luasnip" }, -- snippets
 			{ name = "buffer" }, -- text within current buffer
 			{ name = "path" }, -- file system paths
