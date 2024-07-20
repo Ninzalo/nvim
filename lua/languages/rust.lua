@@ -1,8 +1,8 @@
 local M = {}
 
-M.treesitter_to_install = { "rust" }
+M.treesitter_to_install = { 'rust' }
 M.lsp_configs = {
-	rust_analyzer = {},
+  rust_analyzer = {},
 }
 
 return M

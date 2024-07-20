@@ -1,19 +1,19 @@
 local config = function()
-	local spectre = require("spectre")
+  local spectre = require 'spectre'
 
-	local config = {
-		result_padding = "",
-		default = {
-			replace = {
-				cmd = "sed",
-			},
-		},
-	}
+  local config = {
+    result_padding = '',
+    default = {
+      replace = {
+        cmd = 'sed',
+      },
+    },
+  }
 
-	spectre.setup(config)
+  spectre.setup(config)
 end
 
 return {
-	"nvim-pack/nvim-spectre",
-	config = config,
+  'nvim-pack/nvim-spectre',
+  config = config,
 }
