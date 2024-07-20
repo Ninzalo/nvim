@@ -1,97 +1,298 @@
 return {
-	"folke/which-key.nvim",
-	lazy = false,
-	config = function()
-		local whichkey = require("which-key")
+  'folke/which-key.nvim',
+  dependencies = { 'echasnovski/mini.nvim', version = false },
+  lazy = false,
+  config = function()
+    local whichkey = require 'which-key'
 
-		local opts = {
-			mode = "n", -- NORMAL mode
-			prefix = "<leader>",
-			buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-			silent = true, -- use `silent` when creating keymaps
-			noremap = true, -- use `noremap` when creating keymaps
-			nowait = true, -- use `nowait` when creating keymaps
-		}
+    local mappings = {
+      -- Single mappings
+      {
+        '<leader>e',
+        '<cmd>NvimTreeToggle<CR>',
+        desc = 'Explorer',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>w',
+        '<cmd>w!<CR>',
+        desc = 'Save',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>q',
+        '<cmd>q<CR>',
+        desc = 'Quit',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>f',
+        '<cmd>Telescope live_grep theme=ivy<CR>',
+        desc = 'Find Text',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>F',
+        '<cmd>Telescope find_files theme=ivy<CR>',
+        desc = 'Find Files',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>b',
+        '<cmd>Telescope buffers theme=ivy<CR>',
+        desc = 'Buffers',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>P',
+        '<cmd>Telescope projects theme=ivy<CR>',
+        desc = 'Projects',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>h',
+        '<cmd>nohlsearch<CR>',
+        desc = 'No Highlight',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>m',
+        '<cmd>Mason<CR>',
+        desc = 'Mason LSP',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>M',
+        '<cmd>MarkdownPreviewToggle<CR>',
+        desc = 'Markdown Preview',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>s',
+        "<cmd>lua require('flash').jump()<CR>",
+        desc = 'Search for word',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>G',
+        '<cmd>Neogit<CR>',
+        desc = 'Neogit',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>D',
+        '<cmd>DBUIToggle<CR>',
+        desc = 'DBUI',
+        nowait = true,
+        remap = false,
+      },
 
-		local mappings = {
-			e = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-			w = { "<cmd>w!<CR>", "Save" },
-			q = { "<cmd>q<CR>", "Quit" },
-			f = { "<cmd>Telescope live_grep theme=ivy<CR>", "Find Text" },
-			F = { "<cmd>Telescope find_files theme=ivy<CR>", "Find Files" },
-			b = { "<cmd>Telescope buffers theme=ivy<CR>", "Buffers" },
-			P = { "<cmd>Telescope projects theme=ivy<CR>", "Projects" },
-			h = { "<cmd>nohlsearch<CR>", "No Highlight" },
-			m = { "<cmd>Mason<CR>", "Mason LSP" },
-			s = { "<cmd>lua require('flash').jump()<CR>", "Search for word" },
-			M = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
-			G = { "<cmd>Neogit<CR>", "Neogit" },
-			D = { "<cmd>DBUIToggle<CR>", "DBUI" },
+      -- Group mappings
 
-			t = {
-				name = "Toggle",
-				e = { "<cmd>ToggleTerm<CR>", "Terminal" },
-				a = { "<cmd>TSJToggle<CR>", "Array" },
-				r = {
-					name = "Trouble",
-					d = {
-						"<cmd>Trouble diagnostics toggle focus=true win={size={height=0.3}}<CR>",
-						"Diagnostics",
-					},
-					s = {
-						"<cmd>Trouble symbols toggle focus=true win={size={width=0.3}}<CR>",
-						"Symbols",
-					},
-				},
-			},
+      -- Window split
+      { '<leader>S', group = 'Window Split', nowait = true, remap = false },
+      {
+        '<leader>Sh',
+        '<cmd>split<CR>',
+        desc = 'Horizontal',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>Sv',
+        '<cmd>vsplit<CR>',
+        desc = 'Vertical',
+        nowait = true,
+        remap = false,
+      },
 
-			r = {
-				name = "Search and replace",
-				t = { "<cmd>lua require('spectre').toggle()<CR>", "Toggle Spectre" },
-				f = { "<cmd>lua require('spectre').open_file_search()<CR>", "Open File" },
-				w = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Select Word" },
-				W = {
-					"<cmd>lua require('spectre').open_file_search({select_word=true})<CR>",
-					"Select Word in current file",
-				},
-			},
+      -- LSP Saga
+      { '<leader>g', group = 'LSP Saga', nowait = true, remap = false },
+      {
+        '<leader>gc',
+        '<cmd>Lspsaga code_action<CR>',
+        desc = 'Code Action',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>gd',
+        '<cmd>Lspsaga goto_definition<CR>',
+        desc = 'Go to definition',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>gl',
+        '<cmd>Lspsaga hover_doc<CR>',
+        desc = 'Show docs',
+        nowait = true,
+        remap = false,
+      },
 
-			S = {
-				name = "Window Split",
-				v = { "<cmd>vsplit<CR>", "Vertical" },
-				h = { "<cmd>split<CR>", "Horizontal" },
-			},
+      -- LSP
+      { '<leader>l', group = 'LSP', nowait = true, remap = false },
+      {
+        '<leader>li',
+        '<cmd>LspInfo<CR>',
+        desc = 'Info',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>lr',
+        '<cmd>LspRestart<CR>',
+        desc = 'Restart',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>ls',
+        '<cmd>lua vim.diagnostic.open_float()<CR>',
+        desc = 'Show Diagnostics',
+        nowait = true,
+        remap = false,
+      },
 
-			l = {
-				name = "LSP",
-				i = { "<cmd>LspInfo<CR>", "Info" },
-				r = { "<cmd>LspRestart<CR>", "Restart" },
-				s = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Show Diagnostics" },
-			},
+      -- Neotest
+      { '<leader>n', group = 'Neotest', nowait = true, remap = false },
+      {
+        '<leader>no',
+        '<cmd>Neotest output<CR>',
+        desc = 'Neotest Output',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>nq',
+        '<cmd>Neotest stop<CR>',
+        desc = 'Neotest Stop',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>nr',
+        '<cmd>Neotest run file<CR>',
+        desc = 'Neotest Run File',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>ns',
+        '<cmd>Neotest summary<CR>',
+        desc = 'Neotest Summary',
+        nowait = true,
+        remap = false,
+      },
 
-			g = {
-				name = "LSP Saga",
-				d = { "<cmd>Lspsaga goto_definition<CR>", "Go to definition" },
-				l = { "<cmd>Lspsaga hover_doc<CR>", "Show docs" },
-				c = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
-			},
+      -- Lazy packages
+      { '<leader>p', group = 'Lazy', nowait = true, remap = false },
+      {
+        '<leader>pi',
+        '<cmd>Lazy install<CR>',
+        desc = 'Install',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>pl',
+        '<cmd>Lazy<CR>',
+        desc = 'Open Lazy',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>pu',
+        '<cmd>Lazy update<CR>',
+        desc = 'Update',
+        nowait = true,
+        remap = false,
+      },
 
-			p = {
-				name = "Lazy",
-				l = { "<cmd>Lazy<CR>", "Open Lazy" },
-				u = { "<cmd>Lazy update<CR>", "Update" },
-				i = { "<cmd>Lazy install<CR>", "Install" },
-			},
+      -- Search and replace
+      {
+        '<leader>r',
+        group = 'Search and replace',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>rW',
+        "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>",
+        desc = 'Select Word in current file',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>rf',
+        "<cmd>lua require('spectre').open_file_search()<CR>",
+        desc = 'Open File',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>rt',
+        "<cmd>lua require('spectre').toggle()<CR>",
+        desc = 'Toggle Spectre',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>rw',
+        "<cmd>lua require('spectre').open_visual({select_word=true})<CR>",
+        desc = 'Select Word',
+        nowait = true,
+        remap = false,
+      },
 
-			n = {
-				name = "Neotest",
-				s = { "<cmd>Neotest summary<CR>", "Neotest Summary" },
-				r = { "<cmd>Neotest run file<CR>", "Neotest Run File" },
-				q = { "<cmd>Neotest stop<CR>", "Neotest Stop" },
-				o = { "<cmd>Neotest output<CR>", "Neotest Output" },
-			},
-		}
+      -- Toggling mappings
+      { '<leader>t', group = 'Toggle', nowait = true, remap = false },
+      {
+        '<leader>ta',
+        '<cmd>TSJToggle<CR>',
+        desc = 'Array',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>te',
+        '<cmd>ToggleTerm<CR>',
+        desc = 'Terminal',
+        nowait = true,
+        remap = false,
+      },
 
-		whichkey.register(mappings, opts)
-	end,
+      -- Toggling mappings -> Trouble
+      { '<leader>tr', group = 'Trouble', nowait = true, remap = false },
+      {
+        '<leader>trd',
+        '<cmd>Trouble diagnostics toggle focus=true win={size={height=0.3}}<CR>',
+        desc = 'Diagnostics',
+        nowait = true,
+        remap = false,
+      },
+      {
+        '<leader>trs',
+        '<cmd>Trouble symbols toggle focus=true win={size={width=0.3}}<CR>',
+        desc = 'Symbols',
+        nowait = true,
+        remap = false,
+      },
+    }
+
+    -- whichkey.register(mappings, opts)
+    whichkey.add(mappings)
+  end,
 }
