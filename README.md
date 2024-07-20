@@ -14,6 +14,8 @@
 
 - Install additional packages: `brew install git npm gnu-sed`
 
+- [Optional] Install `pre-commit`: `brew install pre-commit`
+
 - Update packages: `brew upgrade`
 
 ## Installation
@@ -32,7 +34,7 @@
   rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
   ```
 
-**IMPORTANT** Requires [Neovim v0.8.0](https://github.com/neovim/neovim/releases). Please [upgrade](#upgrade-to-latest-release) if you're on an earlier version.
+**IMPORTANT** Requires [Neovim v0.10.0](https://github.com/neovim/neovim/releases). Please [upgrade](https://github.com/neovim/neovim/releases) if you're on an earlier version.
 
 ```sh
 git clone git@github.com:Ninzalo/nvimconf.git ~/.config/nvim
@@ -62,6 +64,14 @@ Next we need to install [NerdFonts](https://www.nerdfonts.com/font-downloads)
   ```
 
 - Add to the profile of your terminal
+
+## Pre-commit hook (if you want to use pre-commit)
+
+```sh
+pre-commit install
+pre-commit autoupdate
+pre-commit run --all-files
+```
 
 ## Shortcuts
 
