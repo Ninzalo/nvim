@@ -12,7 +12,7 @@
 
 - Install Neovim: `brew install neovim`
 
-- Install additional packages: `brew install git npm gnu-sed`
+- Install additional packages: `brew install git npm gnu-sed ripgrep`
 
 - [Optional] Install `pre-commit`: `brew install pre-commit`
 
