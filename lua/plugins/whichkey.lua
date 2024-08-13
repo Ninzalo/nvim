@@ -87,7 +87,7 @@ return {
       {
         '<leader>G',
         '<cmd>Neogit<CR>',
-        desc = 'Neogit',
+        desc = 'Git',
         nowait = true,
         remap = false,
       },
