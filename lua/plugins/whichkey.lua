@@ -266,13 +266,6 @@ return {
         nowait = true,
         remap = false,
       },
-      {
-        '<leader>te',
-        '<cmd>ToggleTerm<CR>',
-        desc = 'Terminal',
-        nowait = true,
-        remap = false,
-      },
 
       -- Toggling mappings -> Trouble
       { '<leader>tr', group = 'Trouble', nowait = true, remap = false },
