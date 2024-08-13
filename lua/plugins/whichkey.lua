@@ -86,7 +86,8 @@ return {
       },
       {
         '<leader>G',
-        '<cmd>Neogit<CR>',
+        -- '<cmd>Neogit<CR>',
+        '<cmd>LazyGit<cr>',
         desc = 'Git',
         nowait = true,
         remap = false,
