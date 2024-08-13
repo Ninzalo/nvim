@@ -12,7 +12,7 @@
 
 - Install Neovim: `brew install neovim`
 
-- Install additional packages: `brew install git npm gnu-sed ripgrep`
+- Install additional packages: `brew install git npm gnu-sed ripgrep jesseduffield/lazygit/lazygit`
 
 - [Optional] Install `pre-commit`: `brew install pre-commit`
 
