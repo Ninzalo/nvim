@@ -13,7 +13,7 @@ M.lsp_configs = {
       'svelte',
     },
   },
-  tsserver = {
+  ts_ls = {
     filetypes = {
       'javascript',
       'javascriptreact',
