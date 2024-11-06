@@ -1,0 +1,16 @@
+line-length = 79
+indent-width = 4
+
+[lint]
+fixable = ["ALL"]
+select = [
+  "A", "B", "D", "E", "F", "I", "N", "Q", "R", "S", "W", "UP", "C4", "C90",
+  "ANN", "BLE", "FBT", "ASYNC", "COM", "PIE", "TID", "ARG", "PTH", "PL", "EM" ]
+ignore = [
+  "S603", "S110", "S311", "S112", "N999", "TID251", "ANN101", "ANN102",
+  "BLE001", "D107", "D100", "D104"
+]
+
+[format]
+quote-style = "double"
+docstring-code-format = true
