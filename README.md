@@ -60,7 +60,7 @@ Next we need to install [NerdFonts](https://www.nerdfonts.com/font-downloads)
 
 - Copy `<FONTS DIRECTORY>/*` to `~/.local/share/fonts`
   ```sh
-  cp -rf ./fonts/* ~/.local/share/fonts/
+  cp -rf ./<FONTS DIRECTORY>/* ~/.local/share/fonts/
   ```
 
 - Add to the profile of your terminal
