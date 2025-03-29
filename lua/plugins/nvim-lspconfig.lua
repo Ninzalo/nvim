@@ -8,18 +8,27 @@ local config = function()
 
   local lspconfig = require 'lspconfig'
 
+  local active_signs = {
+    text = {},
+    texthl = {},
+    numhl = {},
+  }
+
   for type, icon in pairs(diagnostic_signs) do
     local hl = 'DiagnosticSign' .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+    local severity = vim.diagnostic.severity[string.upper(type)]
+    if severity then
+      active_signs.text[severity] = icon
+      active_signs.texthl[severity] = hl
+      active_signs.numhl[severity] = ''
+    end
   end
 
   local capabilities = cmp_nvim_lsp.default_capabilities()
 
   local diagnostics_config = {
     virtual_text = false, -- disable virtual text
-    signs = {
-      active = diagnostic_signs, -- show signs
-    },
+    signs = active_signs,
     update_in_insert = true,
     underline = true,
     severity_sort = true,
