@@ -46,10 +46,7 @@ local config = function()
 
   vim.lsp.buf.hover { border = 'rounded' }
 
-  vim.lsp.handlers['textDocument/signatureHelp'] =
-    vim.lsp.with(vim.lsp.handlers.signature_help, {
-      border = 'rounded',
-    })
+  vim.lsp.buf.signature_help { border = 'rounded' }
 
   for _, opts in pairs(require 'languages') do
     if opts.lsp_configs then
