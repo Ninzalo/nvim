@@ -5,6 +5,7 @@ local main = {
   rust = require 'languages.rust',
   web = require 'languages.web',
   buf = require 'languages.buf',
+  clang = require 'languages.clang',
 }
 
 local other = require 'languages.other'
