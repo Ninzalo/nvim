@@ -44,9 +44,20 @@ local config = function()
 
   vim.diagnostic.config(diagnostics_config)
 
-  vim.lsp.buf.hover { border = 'rounded' }
+  -- Custom handlers to avoid vim.lsp.with deprecation and enforce rounded borders
+  local hover_handler = vim.lsp.handlers["textDocument/hover"]
+  local signature_help_handler = vim.lsp.handlers["textDocument/signatureHelp"]
 
-  vim.lsp.buf.signature_help { border = 'rounded' }
+  vim.lsp.handlers["textDocument/hover"] = function(win, result, args)
+    local opts = type(args) == 'table' and vim.fn.deepcopy(args) or {}
+    opts.border = 'rounded'
+    hover_handler(win, result, opts)
+  end
+  vim.lsp.handlers["textDocument/signatureHelp"] = function(win, result, args)
+    local opts = type(args) == 'table' and vim.fn.deepcopy(args) or {}
+    opts.border = 'rounded'
+    signature_help_handler(win, result, opts)
+  end
 
   for _, opts in pairs(require 'languages') do
     if opts.lsp_configs then
@@ -54,7 +65,23 @@ local config = function()
         local default_properties =
           { capabilities = capabilities, on_attach = on_attach }
         local merged_table = tools.merge_tables(config, default_properties)
-        lspconfig[name].setup(merged_table)
+        
+        -- Use the new API if available (Neovim 0.11+ / lspconfig 0.11+), 
+        -- otherwise fallback to the old way.
+        if vim.lsp.config and vim.lsp.enable then
+          vim.lsp.config(name, merged_table)
+          vim.lsp.enable(name)
+        else
+          local lsp = lspconfig[name]
+          if lsp then
+            local ok, _ = pcall(function() lsp.setup(merged_table) end)
+            if not ok then
+              vim.notify("Failed to setup LSP server: " .. name, vim.log.levels.ERROR)
+            end
+          else
+            vim.notify("LSP server not found: " .. name, vim.log.levels.WARN)
+          end
+        end
       end
     end
   end
