@@ -37,6 +37,9 @@ local opts = {
   change_detection = {
     notify = true,
   },
+  rocks = {
+    enabled = false,
+  },
 }
 
 require('lazy').setup('plugins', opts)
