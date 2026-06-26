@@ -1,6 +1,9 @@
 local M = {}
 
 M.lsp_configs = {
+  jsonls = {
+    filetypes = { 'json', 'jsonc' },
+  },
   emmet_ls = {
     filetypes = {
       'html',
@@ -35,6 +38,7 @@ M.formatters = {
   typescriptreact = { 'prettierd' },
   svelte = { 'prettierd' },
   html = { 'prettierd' },
+  json = { 'prettierd' },
 }
 
 M.linters = {
@@ -44,9 +48,10 @@ M.linters = {
   typescriptreact = { 'eslint_d' },
   svelte = { 'eslint_d' },
   html = { 'htmlhint' },
+  json = { 'eslint' },
 }
 
 M.treesitter_to_install =
-  { 'html', 'css', 'javascript', 'typescript', 'vue', 'svelte' }
+  { 'html', 'css', 'javascript', 'typescript', 'vue', 'svelte', 'json' }
 
 return M
