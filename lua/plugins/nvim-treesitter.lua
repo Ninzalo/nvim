@@ -1,5 +1,16 @@
 local config = function()
-  local configs = require 'nvim-treesitter.configs'
+  local ts_module = nil
+  local success, m = pcall(require, 'nvim-treesitter.configs')
+  if success and m.setup then
+    ts_module = m
+  elseif success and m.config and m.config.setup then
+    ts_module = m.config
+  else
+    success, m = pcall(require, 'nvim-treesitter.config')
+    if success and m.setup then
+      ts_module = m
+    end
+  end
 
   local treesitter_config = function()
     local tools = require 'util.tools'
@@ -18,7 +29,9 @@ local config = function()
     }
   end
 
-  configs.setup(treesitter_config())
+  if ts_module then
+    ts_module.setup(treesitter_config())
+  end
 end
 
 return {
